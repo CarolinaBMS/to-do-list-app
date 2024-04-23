@@ -40,7 +40,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="ToDoListTableView" destination="84c-ZM-4O0" id="hcv-l4-hTf"/>
-                        <segue destination="eEf-7p-5YX" kind="presentation" identifier="addTaskSegue" modalPresentationStyle="formSheet" id="s5m-ga-koV"/>
+                        <segue destination="eEf-7p-5YX" kind="presentation" identifier="addTaskSegue" id="s5m-ga-koV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -54,14 +54,81 @@
                     <view key="view" contentMode="scaleToFill" id="C6K-Cz-Utw">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add new task" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7s-OA-RMo">
+                                <rect key="frame" x="125" y="26" width="142" height="25.333333333333329"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQ8-RV-M3N">
+                                <rect key="frame" x="30" y="78" width="63" height="23"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sc1-Sm-afI">
+                                <rect key="frame" x="30" y="164" width="123" height="23"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter task title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S7R-ed-yTe">
+                                <rect key="frame" x="30" y="109" width="333" height="35"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="3cj-Io-Kgp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter task category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jdK-T2-BPY">
+                                <rect key="frame" x="30" y="195" width="333" height="35"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="e2X-3u-aeq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EA6-aQ-s33">
+                                <rect key="frame" x="300" y="26" width="63" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="etX-rm-rWO"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="RFR-zT-Z4q"/>
-                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RFR-zT-Z4q" firstAttribute="trailing" secondItem="S7R-ed-yTe" secondAttribute="trailing" constant="30" id="0sy-xS-IlQ"/>
+                            <constraint firstItem="t7s-OA-RMo" firstAttribute="leading" secondItem="RFR-zT-Z4q" secondAttribute="leading" constant="125" id="7cC-Ja-FDs"/>
+                            <constraint firstItem="jdK-T2-BPY" firstAttribute="top" secondItem="Sc1-Sm-afI" secondAttribute="bottom" constant="8" id="8CX-n4-iJH"/>
+                            <constraint firstItem="RFR-zT-Z4q" firstAttribute="trailing" secondItem="mQ8-RV-M3N" secondAttribute="trailing" constant="300" id="8aG-jV-Iz9"/>
+                            <constraint firstItem="t7s-OA-RMo" firstAttribute="top" secondItem="RFR-zT-Z4q" secondAttribute="top" constant="26" id="9FL-99-wi9"/>
+                            <constraint firstItem="Sc1-Sm-afI" firstAttribute="leading" secondItem="RFR-zT-Z4q" secondAttribute="leading" constant="30" id="Arw-Bf-9v9"/>
+                            <constraint firstItem="RFR-zT-Z4q" firstAttribute="trailing" secondItem="Sc1-Sm-afI" secondAttribute="trailing" constant="240" id="Cqe-qz-EaX"/>
+                            <constraint firstItem="jdK-T2-BPY" firstAttribute="leading" secondItem="RFR-zT-Z4q" secondAttribute="leading" constant="30" id="GjD-qR-CJf"/>
+                            <constraint firstItem="S7R-ed-yTe" firstAttribute="leading" secondItem="RFR-zT-Z4q" secondAttribute="leading" constant="30" id="KNt-wU-pFt"/>
+                            <constraint firstItem="Sc1-Sm-afI" firstAttribute="top" secondItem="S7R-ed-yTe" secondAttribute="bottom" constant="20" id="LtJ-yA-hVY"/>
+                            <constraint firstItem="EA6-aQ-s33" firstAttribute="top" secondItem="RFR-zT-Z4q" secondAttribute="top" constant="26" id="Tux-pe-XCm"/>
+                            <constraint firstItem="RFR-zT-Z4q" firstAttribute="trailing" secondItem="t7s-OA-RMo" secondAttribute="trailing" constant="126" id="Wjm-rH-5ma"/>
+                            <constraint firstItem="S7R-ed-yTe" firstAttribute="top" secondItem="mQ8-RV-M3N" secondAttribute="bottom" constant="8" id="a0a-f8-JcB"/>
+                            <constraint firstItem="EA6-aQ-s33" firstAttribute="leading" secondItem="t7s-OA-RMo" secondAttribute="trailing" constant="33" id="bcQ-o4-lqF"/>
+                            <constraint firstItem="RFR-zT-Z4q" firstAttribute="trailing" secondItem="jdK-T2-BPY" secondAttribute="trailing" constant="30" id="sN8-Qr-L1q"/>
+                            <constraint firstItem="mQ8-RV-M3N" firstAttribute="leading" secondItem="RFR-zT-Z4q" secondAttribute="leading" constant="30" id="t0K-U3-meb"/>
+                            <constraint firstItem="RFR-zT-Z4q" firstAttribute="trailing" secondItem="EA6-aQ-s33" secondAttribute="trailing" constant="30" id="uQd-8M-239"/>
+                            <constraint firstItem="mQ8-RV-M3N" firstAttribute="top" secondItem="t7s-OA-RMo" secondAttribute="bottom" constant="26.666666666666671" id="yu9-dL-W5c"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="b4y-Gd-eeF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MZX-Sv-wkh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1956" y="-2"/>
+            <point key="canvasLocation" x="1954.9618320610687" y="-2.1126760563380285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="v90-Mm-i8Z">
@@ -86,8 +153,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
