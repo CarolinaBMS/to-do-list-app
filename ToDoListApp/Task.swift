@@ -20,10 +20,10 @@ class Task {
  
 }
 
-
-var tasks: [Task] = [
+//
+//var tasks: [Task] = [
 //    Task(title: "Go to supermarket", category: "Shopping"),
-//    Task(title: "Pay bill", category: "Finance"),
+//    Task(title: "Pay bills", category: "Finance"),
 //    Task(title: "Make biscuits", category: "Food"),
-]
-
+//]
+//
