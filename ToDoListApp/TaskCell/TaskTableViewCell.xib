@@ -18,9 +18,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uhD-Pf-02W">
-                        <rect key="frame" x="44" y="42.333333333333336" width="19" height="15.666666666666664"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uhD-Pf-02W">
+                        <rect key="frame" x="141.66666666666666" y="45.333333333333336" width="19" height="15.666666666666664"/>
                         <imageReference key="image" image="calendar" catalog="system" renderingMode="hierarchical-single">
                             <hierarchicalColors>
                                 <color white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -30,23 +29,14 @@
                         </imageReference>
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="15"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10:00am" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7F-25-Sl3">
-                        <rect key="frame" x="65" y="42" width="55" height="14.333333333333336"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#Shopping" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ksi-om-zRd">
-                        <rect key="frame" x="124" y="42" width="61.333333333333314" height="14.333333333333336"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#Shopping" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ksi-om-zRd">
+                        <rect key="frame" x="59.666666666666657" y="45.666666666666664" width="61.333333333333343" height="14.333333333333336"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZO-L0-IOs">
-                        <rect key="frame" x="0.0" y="19" width="44" height="34"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZO-L0-IOs">
+                        <rect key="frame" x="4" y="20" width="49.666666666666664" height="31"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system">
                             <color key="baseForegroundColor" systemColor="labelColor"/>
@@ -55,15 +45,33 @@
                             <action selector="checkButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="lSO-BO-zhx"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shopping at the supermarket" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0m-n3-sCf">
-                        <rect key="frame" x="42" y="16" width="221.33333333333331" height="20.333333333333329"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shopping at the supermarket" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0m-n3-sCf">
+                        <rect key="frame" x="59.666666666666671" y="16" width="245.66666666666663" height="23"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
                         <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00am" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7F-25-Sl3">
+                        <rect key="frame" x="163.66666666666666" y="47.666666666666664" width="49" height="14.333333333333336"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                <constraints>
+                    <constraint firstItem="Ksi-om-zRd" firstAttribute="leading" secondItem="rZO-L0-IOs" secondAttribute="trailing" constant="6" id="A3w-Ft-O77"/>
+                    <constraint firstItem="rZO-L0-IOs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="IyV-se-qAp"/>
+                    <constraint firstAttribute="bottom" secondItem="uhD-Pf-02W" secondAttribute="bottom" constant="8" id="aWd-kZ-neu"/>
+                    <constraint firstItem="S0m-n3-sCf" firstAttribute="leading" secondItem="rZO-L0-IOs" secondAttribute="trailing" constant="6" id="boE-KU-62x"/>
+                    <constraint firstItem="S7F-25-Sl3" firstAttribute="leading" secondItem="uhD-Pf-02W" secondAttribute="trailing" constant="3" id="cyz-TM-sps"/>
+                    <constraint firstItem="S0m-n3-sCf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="gAf-6P-q0H"/>
+                    <constraint firstAttribute="bottom" secondItem="rZO-L0-IOs" secondAttribute="bottom" constant="19" id="iBJ-Q8-HSc"/>
+                    <constraint firstItem="rZO-L0-IOs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="nyj-RQ-ZaC"/>
+                    <constraint firstItem="uhD-Pf-02W" firstAttribute="leading" secondItem="Ksi-om-zRd" secondAttribute="trailing" constant="20.666666666666657" id="o79-kg-Q3i"/>
+                    <constraint firstAttribute="bottom" secondItem="Ksi-om-zRd" secondAttribute="bottom" constant="10" id="twP-bJ-uuq"/>
+                    <constraint firstAttribute="bottom" secondItem="S7F-25-Sl3" secondAttribute="bottom" constant="8" id="yFH-Et-XK4"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
@@ -72,7 +80,7 @@
                 <outlet property="taskListTitleLabel" destination="S0m-n3-sCf" id="dPJ-iE-zrT"/>
                 <outlet property="taskTimeLabel" destination="S7F-25-Sl3" id="yoI-Y9-nip"/>
             </connections>
-            <point key="canvasLocation" x="138.93129770992365" y="20.422535211267608"/>
+            <point key="canvasLocation" x="138.1679389312977" y="20.422535211267608"/>
         </tableViewCell>
     </objects>
     <resources>
@@ -82,13 +90,13 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

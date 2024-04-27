@@ -19,8 +19,15 @@ class AddTaskViewController: UIViewController {
     @IBOutlet weak var taskCategoryTextField: UITextField!
     
     @IBAction func saveTaskButton(_ sender: UIButton) {
-        let titleText = taskTitleTextField.text ??  "no title text"
-        let categoryText = taskCategoryTextField.text ?? "no category text"
+        var titleText = taskTitleTextField.text ??  ""
+        if titleText.isEmpty {
+            titleText = "New task"
+        }
+        
+        var categoryText = "\(taskCategoryTextField.text ?? "")"
+        if categoryText.isEmpty {
+            categoryText = "Category"
+        }
         
         delegate?.savedTask(taskTitle: titleText, taskCategory: categoryText)
         

@@ -16,13 +16,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hkh-6E-QIB" userLabel="Day Label">
-                    <rect key="frame" x="16" y="68" width="86.333333333333329" height="34.666666666666657"/>
-                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="30"/>
+                    <rect key="frame" x="16" y="68" width="92" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37" id="Zol-ou-lkp"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="32"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09 Apr" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YdK-Gy-byM" userLabel="Date label">
-                    <rect key="frame" x="111" y="73" width="76" height="29"/>
+                    <rect key="frame" x="114.66666666666669" y="70.333333333333329" width="75.333333333333314" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37" id="5oI-Zi-nOX"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="25"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -49,11 +55,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Qt-lI-qxx">
-                    <rect key="frame" x="331" y="57" width="46" height="45"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="45" id="9X7-MQ-phu"/>
-                        <constraint firstAttribute="width" constant="46" id="eyw-j9-79R"/>
-                    </constraints>
+                    <rect key="frame" x="310.66666666666669" y="60" width="68.333333333333314" height="45"/>
                     <color key="tintColor" systemColor="labelColor"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="">
@@ -68,14 +70,16 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="YdK-Gy-byM" firstAttribute="leading" secondItem="Hkh-6E-QIB" secondAttribute="trailing" constant="8.6666666666666714" id="1md-Ti-WH8"/>
+                <constraint firstItem="YdK-Gy-byM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="70.329999999999998" id="05C-OA-wj0"/>
                 <constraint firstItem="bPt-g9-N8G" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="FcU-8X-BdU"/>
                 <constraint firstItem="Hkh-6E-QIB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="Jxo-gU-Zmr"/>
                 <constraint firstItem="bPt-g9-N8G" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="NLw-71-XDU"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="6Qt-lI-qxx" secondAttribute="trailing" constant="16" id="PwB-be-XBP"/>
+                <constraint firstItem="6Qt-lI-qxx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="60" id="Qa1-pM-yzk"/>
                 <constraint firstItem="Hkh-6E-QIB" firstAttribute="top" secondItem="bPt-g9-N8G" secondAttribute="bottom" constant="21" id="VtI-8h-Qi8"/>
-                <constraint firstAttribute="bottom" secondItem="6Qt-lI-qxx" secondAttribute="bottom" constant="18" id="qUK-Ue-HTT"/>
-                <constraint firstItem="YdK-Gy-byM" firstAttribute="top" secondItem="Hkh-6E-QIB" secondAttribute="bottom" constant="-29.666666666666657" id="usB-B0-52w"/>
+                <constraint firstAttribute="bottom" secondItem="6Qt-lI-qxx" secondAttribute="bottom" constant="15" id="Xrp-75-eyC"/>
+                <constraint firstAttribute="bottom" secondItem="YdK-Gy-byM" secondAttribute="bottom" constant="12.67" id="gra-ax-2yD"/>
+                <constraint firstItem="YdK-Gy-byM" firstAttribute="leading" secondItem="Hkh-6E-QIB" secondAttribute="trailing" constant="6.6666666666666856" id="l5C-aW-rHb"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="6Qt-lI-qxx" secondAttribute="trailing" constant="14" id="smi-ia-9im"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

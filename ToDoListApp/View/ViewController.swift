@@ -64,6 +64,7 @@ extension ViewController: UITableViewDataSource {
         let task = tasks[indexPath.row]
         
         taskCell.taskListTitleLabel.text = task.title
+        taskCell.taskCategoryLabel.text = "\(task.category)"
         
         return taskCell
     }
@@ -92,8 +93,16 @@ extension ViewController: UITableViewDelegate {
         return headerView
     }
     
+    // Remove an item from tasks array and the cell
+     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == . delete {
+            tasks.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
     
-    // Returns the height for header===
+    
+    // Returns the height for header
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 120
     }
