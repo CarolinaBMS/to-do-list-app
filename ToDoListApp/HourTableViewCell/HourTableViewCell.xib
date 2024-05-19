@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="265" id="KGk-i7-Jjw" customClass="HourTableViewCell" customModule="ToDoListApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="265"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="265"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Vi6-w1-Iim">
+                        <rect key="frame" x="20" y="9" width="32" height="38.666666666666671"/>
+                        <color key="tintColor" systemColor="labelColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="KT9-mN-0aJ"/>
+                            <constraint firstAttribute="height" constant="40" id="jqt-Ci-czi"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSp-Zi-3hT">
+                        <rect key="frame" x="60" y="18" width="41.666666666666657" height="23"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="Y0H-yE-frZ">
+                        <rect key="frame" x="16" y="56" width="288" height="162"/>
+                    </datePicker>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UoQ-5N-egh">
+                        <rect key="frame" x="249" y="13" width="51" height="31"/>
+                    </switch>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Y0H-yE-frZ" secondAttribute="trailing" constant="16" id="A66-js-2Jy"/>
+                    <constraint firstItem="gSp-Zi-3hT" firstAttribute="leading" secondItem="Vi6-w1-Iim" secondAttribute="trailing" constant="8" id="CeT-0H-JmI"/>
+                    <constraint firstItem="gSp-Zi-3hT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="ICa-9d-VeO"/>
+                    <constraint firstItem="Vi6-w1-Iim" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="KDG-gv-56x"/>
+                    <constraint firstItem="Y0H-yE-frZ" firstAttribute="top" secondItem="Vi6-w1-Iim" secondAttribute="bottom" constant="8" id="LfE-dP-VvE"/>
+                    <constraint firstItem="Vi6-w1-Iim" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="QY8-o9-4s7"/>
+                    <constraint firstItem="UoQ-5N-egh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="bZF-1L-RDe"/>
+                    <constraint firstItem="Y0H-yE-frZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="hEk-KU-4wP"/>
+                    <constraint firstAttribute="trailing" secondItem="UoQ-5N-egh" secondAttribute="trailing" constant="22" id="zcM-xQ-9t0"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="hourDatePicker" destination="Y0H-yE-frZ" id="Fjf-9F-X7P"/>
+                <outlet property="hourSwitch" destination="UoQ-5N-egh" id="2H0-7Y-zL4"/>
+            </connections>
+            <point key="canvasLocation" x="51.908396946564885" y="75.704225352112687"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="clock" catalog="system" width="128" height="123"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -7,37 +7,113 @@
 
 import UIKit
 
-protocol AddTaskDelegate: AnyObject {
-    func savedTask(taskTitle: String, taskCategory: String)
+protocol AddTaskViewControllerDelegate: AnyObject {
+    func didSaveTask(_ task: Task)
 }
 
 class AddTaskViewController: UIViewController {
     
-    weak var delegate: AddTaskDelegate?
+    var viewModel = AddTaskViewModel()
+    weak var delegate: AddTaskViewControllerDelegate?
+    
+    var calendarSwitchIsOn = false
+    var hourSwitchIsOn = false
 
-    @IBOutlet weak var taskTitleTextField: UITextField!
-    @IBOutlet weak var taskCategoryTextField: UITextField!
+    @IBOutlet weak var addNewTaskTableView: UITableView!
     
     @IBAction func saveTaskButton(_ sender: UIButton) {
-        var titleText = taskTitleTextField.text ??  ""
-        if titleText.isEmpty {
-            titleText = "New task"
+        viewModel.saveTask()
+        if let task = viewModel.getTask() {
+            delegate?.didSaveTask(task)
         }
-        
-        var categoryText = "\(taskCategoryTextField.text ?? "")"
-        if categoryText.isEmpty {
-            categoryText = "Category"
-        }
-        
-        delegate?.savedTask(taskTitle: titleText, taskCategory: categoryText)
-        
         dismiss(animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        addNewTaskTableView.dataSource = self
+        addNewTaskTableView.delegate = self
+        
+        configureAddNewTaskTableView()
     }
 
+    func configureAddNewTaskTableView() {
+        addNewTaskTableView.register(UINib(nibName: "TextFieldTableViewCell", bundle: nil), forCellReuseIdentifier: "TextFieldTableViewCell")
+        addNewTaskTableView.register(UINib(nibName: "DateTableViewCell", bundle: nil), forCellReuseIdentifier: "DateTableViewCell")
+        addNewTaskTableView.register(UINib(nibName: "HourTableViewCell", bundle: nil), forCellReuseIdentifier: "HourTableViewCell")
+    }
 }
+
+extension AddTaskViewController: DateTableViewCellDelegate {
+    func calendarSwitchValueChanged(isOn: Bool) {
+        calendarSwitchIsOn = isOn
+        addNewTaskTableView.reloadData()
+    }
+}
+
+
+extension AddTaskViewController: HourTableViewCellDelegate {
+    func hourSwitchValueChanged(isOn: Bool) {
+        hourSwitchIsOn = isOn
+        addNewTaskTableView.reloadData()
+    }
+}
+
+
+extension AddTaskViewController: UITableViewDataSource {
+    enum Section: Int, CaseIterable {
+        case textField
+        case date
+        case hour
+    } 
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return Section.allCases.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return section == Section.textField.rawValue ? 2 : 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let section = Section(rawValue: indexPath.section) else { fatalError("Invalid section") }
+        
+        switch section {
+        case .textField:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell", for: indexPath) as! TextFieldTableViewCell
+            let cellViewModel = indexPath.row == 0 ? viewModel.taskNameViewModel : viewModel.taskCategoryViewModel
+            cell.configure(with: cellViewModel)
+            return cell
+        case .date:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DateTableViewCell", for: indexPath) as! DateTableViewCell
+            cell.delegate = self
+            return cell
+        case .hour:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HourTableViewCell", for: indexPath) as! HourTableViewCell
+            cell.delegate = self
+            return cell
+        }
+    }
+    
+}
+
+
+extension AddTaskViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let section = Section(rawValue: indexPath.section) else { fatalError("Invalid section") }
+        
+        switch section {
+        case .textField:
+            return 65
+        case .date:
+            return calendarSwitchIsOn == true ? 425 : 60
+        case .hour:
+            return hourSwitchIsOn == true ? 275 : 60
+        }
+    }
+    
+}
+
+
+
