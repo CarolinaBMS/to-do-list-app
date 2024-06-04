@@ -10,4 +10,5 @@ import Foundation
 struct Task {
     var name: String
     var category: String
+    var dueDate: String
 }

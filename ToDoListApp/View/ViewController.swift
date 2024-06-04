@@ -12,9 +12,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var ToDoListTableView: UITableView!
     
     var tasks: [Task] = [
-        Task(name: "Go to supermarket", category: "Shopping"),
-        Task(name: "Pay bills", category: "Finance"),
-        Task(name: "Make biscuits", category: "Food")
+//        Task(name: "Go to supermarket", category: "Shopping", date: .now),
+//        Task(name: "Pay bills", category: "Finance", date: .now),
+//        Task(name: "Make biscuits", category: "Food",  date: .now)
     ]
     
     override func viewDidLoad() {
@@ -68,6 +68,7 @@ extension ViewController: UITableViewDataSource {
         
         taskCell.taskListTitleLabel.text = task.name
         taskCell.taskCategoryLabel.text = task.category
+        taskCell.taskTimeLabel.text = task.dueDate
         return taskCell
     }
     

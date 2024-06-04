@@ -50,14 +50,12 @@ extension AddTaskViewController: DateTableViewCellDelegate {
         calendarSwitchIsOn = isOn
         addNewTaskTableView.reloadData()
     }
-}
-
-
-extension AddTaskViewController: HourTableViewCellDelegate {
-    func hourSwitchValueChanged(isOn: Bool) {
-        hourSwitchIsOn = isOn
-        addNewTaskTableView.reloadData()
+    
+    func calendarDateChanged(to date: Date) {
+        viewModel.taskDateViewModel.datePicker = date
+        viewModel.taskDateViewModel.configureDate()
     }
+
 }
 
 
@@ -65,8 +63,7 @@ extension AddTaskViewController: UITableViewDataSource {
     enum Section: Int, CaseIterable {
         case textField
         case date
-        case hour
-    } 
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return Section.allCases.count
@@ -89,10 +86,6 @@ extension AddTaskViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DateTableViewCell", for: indexPath) as! DateTableViewCell
             cell.delegate = self
             return cell
-        case .hour:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "HourTableViewCell", for: indexPath) as! HourTableViewCell
-            cell.delegate = self
-            return cell
         }
     }
     
@@ -108,8 +101,6 @@ extension AddTaskViewController: UITableViewDelegate {
             return 65
         case .date:
             return calendarSwitchIsOn == true ? 425 : 60
-        case .hour:
-            return hourSwitchIsOn == true ? 275 : 60
         }
     }
     

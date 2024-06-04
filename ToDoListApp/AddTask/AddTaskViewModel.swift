@@ -10,11 +10,11 @@ import Foundation
 class AddTaskViewModel {
     var taskNameViewModel = TextFieldViewModel(placeholder: "Add task name")
     var taskCategoryViewModel = TextFieldViewModel(placeholder: "Add task category")
-    
+    var taskDateViewModel = DateViewModel()
     private var task: Task?
     
     func saveTask() {
-        task = Task(name: taskNameViewModel.text, category: taskCategoryViewModel.text)
+        task = Task(name: taskNameViewModel.text, category: taskCategoryViewModel.text, dueDate: taskDateViewModel.stringDate)
     }
     
     func getTask() -> Task? {
