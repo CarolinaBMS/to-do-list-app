@@ -80,8 +80,6 @@ extension ViewController: UITableViewDelegate {
         let headerView = Bundle.main.loadNibNamed("HomeTableViewHeader", owner: self, options: nil)?.first as? HomeTableViewHeader
         
         headerView?.delegate = self
-
-        headerView?.configureDateLabel()
         
         return headerView
     }
@@ -94,7 +92,7 @@ extension ViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 120
+        return 78
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
