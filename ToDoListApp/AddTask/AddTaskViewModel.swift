@@ -14,6 +14,19 @@ class AddTaskViewModel {
     private var task: Task?
     
     func saveTask() {
+        if taskNameViewModel.text.isEmpty {
+            return
+        }
+        
+        if taskDateViewModel.stringDate.isEmpty {
+            taskDateViewModel.datePicker = .now
+            taskDateViewModel.configureDate()
+        }
+        
+        if !taskCategoryViewModel.text.isEmpty {
+            taskCategoryViewModel.text = "#\(taskCategoryViewModel.text)"
+        }
+        
         task = Task(name: taskNameViewModel.text, category: taskCategoryViewModel.text, dueDate: taskDateViewModel.stringDate)
     }
     

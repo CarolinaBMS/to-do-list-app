@@ -11,11 +11,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var ToDoListTableView: UITableView!
     
-    var tasks: [Task] = [
-//        Task(name: "Go to supermarket", category: "Shopping", date: .now),
-//        Task(name: "Pay bills", category: "Finance", date: .now),
-//        Task(name: "Make biscuits", category: "Food",  date: .now)
-    ]
+    var tasks: [Task] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,7 +92,7 @@ extension ViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 84
     }
 
 }
