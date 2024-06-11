@@ -27,7 +27,7 @@ class AddTaskViewModel {
             taskCategoryViewModel.text = "#\(taskCategoryViewModel.text)"
         }
         
-        task = Task(name: taskNameViewModel.text, category: taskCategoryViewModel.text, dueDate: taskDateViewModel.stringDate)
+        task = Task(name: taskNameViewModel.text, category: taskCategoryViewModel.text, dueDate: taskDateViewModel.stringDate, isCompleted: false)
     }
     
     func getTask() -> Task? {

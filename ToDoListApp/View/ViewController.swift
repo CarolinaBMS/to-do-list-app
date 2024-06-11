@@ -18,7 +18,25 @@ class ViewController: UIViewController {
         configureTableView()
         ToDoListTableView.dataSource = self
         ToDoListTableView.delegate = self
+        tasks = loadTasksData()
         ToDoListTableView.sectionHeaderTopPadding = 0
+    }
+    
+    func saveTasksData(tasks: [Task]) {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(tasks) {
+            UserDefaults.standard.set(encoded, forKey: "tasks")
+        }
+    }
+    
+    func loadTasksData() -> [Task] {
+        if let savedTasks = UserDefaults.standard.data(forKey: "tasks") {
+            let decoder = JSONDecoder()
+            if let loadedTasks = try? decoder.decode([Task].self, from: savedTasks) {
+                return loadedTasks
+            }
+        }
+        return []
     }
     
     func configureTableView() {
@@ -42,10 +60,21 @@ extension ViewController: HomeTableViewHeaderDelegate {
     
 }
 
+
 extension ViewController: AddTaskViewControllerDelegate {
     func didSaveTask(_ task: Task) {
         tasks.append(task)
+        saveTasksData(tasks: tasks)
         ToDoListTableView.reloadData()
+    }
+}
+
+
+extension ViewController: TaskCellDelegate {
+    func taskCheckPressed(buttonIsChecked: Bool, at indexPath: IndexPath) {
+        tasks[indexPath.row].isCompleted = buttonIsChecked
+        saveTasksData(tasks: tasks)
+        ToDoListTableView.reloadRows(at: [indexPath], with: .none)
     }
 }
 
@@ -65,6 +94,15 @@ extension ViewController: UITableViewDataSource {
         taskCell.taskListTitleLabel.text = task.name
         taskCell.taskCategoryLabel.text = task.category
         taskCell.taskTimeLabel.text = task.dueDate
+        
+        let buttonImageName = task.isCompleted ? "checkmark.circle.fill" : "circle"
+        let buttonImage = UIImage(systemName: buttonImageName)
+        taskCell.checkButtonOutlet.setImage(buttonImage, for: .normal)
+        taskCell.buttonIsChecked = task.isCompleted
+        
+        taskCell.delegate = self
+        taskCell.indexPath = indexPath
+        
         return taskCell
     }
     
@@ -83,6 +121,7 @@ extension ViewController: UITableViewDelegate {
      func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             tasks.remove(at: indexPath.row)
+            saveTasksData(tasks: tasks)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
