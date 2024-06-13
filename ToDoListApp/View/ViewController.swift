@@ -20,6 +20,8 @@ class ViewController: UIViewController {
         ToDoListTableView.delegate = self
         tasks = loadTasksData()
         ToDoListTableView.sectionHeaderTopPadding = 0
+        ToDoListTableView.rowHeight = UITableView.automaticDimension
+        ToDoListTableView.estimatedRowHeight = 100
     }
     
     func saveTasksData(tasks: [Task]) {
@@ -118,7 +120,7 @@ extension ViewController: UITableViewDelegate {
         return headerView
     }
     
-     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             tasks.remove(at: indexPath.row)
             saveTasksData(tasks: tasks)
@@ -129,9 +131,5 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 78
     }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 84
-    }
-
+    
 }
