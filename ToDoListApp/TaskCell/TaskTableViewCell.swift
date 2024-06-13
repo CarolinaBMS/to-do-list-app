@@ -28,9 +28,6 @@ class TaskTableViewCell: UITableViewCell {
     
     @IBAction func checkButtonPressed(_ sender: Any) {
         buttonIsChecked.toggle()
-        let buttonImageName = buttonIsChecked ? "checkmark.circle.fill" : "circle"
-        let buttonImage = UIImage(systemName: buttonImageName)
-        checkButtonOutlet.setImage(buttonImage, for: .normal)
         
         if let indexPath = indexPath {
             delegate?.taskCheckPressed(buttonIsChecked: buttonIsChecked, at: indexPath)

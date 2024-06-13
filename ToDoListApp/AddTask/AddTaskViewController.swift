@@ -41,7 +41,6 @@ class AddTaskViewController: UIViewController {
     func configureAddNewTaskTableView() {
         addNewTaskTableView.register(UINib(nibName: "TextFieldTableViewCell", bundle: nil), forCellReuseIdentifier: "TextFieldTableViewCell")
         addNewTaskTableView.register(UINib(nibName: "DateTableViewCell", bundle: nil), forCellReuseIdentifier: "DateTableViewCell")
-        addNewTaskTableView.register(UINib(nibName: "HourTableViewCell", bundle: nil), forCellReuseIdentifier: "HourTableViewCell")
     }
 }
 
