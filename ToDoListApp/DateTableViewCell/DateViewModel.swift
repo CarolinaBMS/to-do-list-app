@@ -11,11 +11,18 @@ class DateViewModel {
     var datePicker: Date = Date()
     var stringDate: String = ""
     
-    func configureDate() {
+    func configureDateAsString() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM d, yyyy"
             
-        let taskDate: Date = datePicker
-        stringDate = dateFormatter.string(from: taskDate)
+        stringDate = dateFormatter.string(from: datePicker)
     }
+    
+    func configureStringDateInCalendarDate() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy"
+        
+        datePicker = dateFormatter.date(from: stringDate) ?? .now
+    }
+    
 }

@@ -9,6 +9,7 @@ import UIKit
 
 protocol AddTaskViewControllerDelegate: AnyObject {
     func didSaveTask(_ task: Task)
+    func didUpdateTask(_ task: Task, at index: Int)
 }
 
 class AddTaskViewController: UIViewController {
@@ -17,14 +18,22 @@ class AddTaskViewController: UIViewController {
     weak var delegate: AddTaskViewControllerDelegate?
     
     var calendarSwitchIsOn = false
-    var hourSwitchIsOn = false
+    var taskToEdit: Task?
+    var taskIndex: Int?
 
     @IBOutlet weak var addNewTaskTableView: UITableView!
     
     @IBAction func saveTaskButton(_ sender: UIButton) {
         viewModel.saveTask()
-        if let task = viewModel.getTask() {
-            delegate?.didSaveTask(task)
+        if taskToEdit != nil, let taskIndex = taskIndex {
+            if let updatedTask = viewModel.getTask() {
+                delegate?.didUpdateTask(updatedTask, at: taskIndex)
+            }
+            taskToEdit = nil
+        } else {
+            if let task = viewModel.getTask() {
+                delegate?.didSaveTask(task)
+            }
         }
         dismiss(animated: true)
     }
@@ -36,6 +45,14 @@ class AddTaskViewController: UIViewController {
         addNewTaskTableView.delegate = self
         
         configureAddNewTaskTableView()
+        
+        if let taskToEdit = taskToEdit {
+            viewModel.taskNameViewModel.text = taskToEdit.name
+            viewModel.taskCategoryViewModel.text = taskToEdit.category
+            calendarSwitchIsOn = true
+            viewModel.taskDateViewModel.stringDate = taskToEdit.dueDate
+            viewModel.taskDateViewModel.configureStringDateInCalendarDate()
+        }
     }
 
     func configureAddNewTaskTableView() {
@@ -53,7 +70,7 @@ extension AddTaskViewController: DateTableViewCellDelegate {
     
     func calendarDateChanged(to date: Date) {
         viewModel.taskDateViewModel.datePicker = date
-        viewModel.taskDateViewModel.configureDate()
+        viewModel.taskDateViewModel.configureDateAsString()
     }
 
 }
@@ -85,6 +102,11 @@ extension AddTaskViewController: UITableViewDataSource {
         case .date:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DateTableViewCell", for: indexPath) as! DateTableViewCell
             cell.delegate = self
+            if calendarSwitchIsOn == true {
+                cell.calendarSwitch.isOn = true
+                cell.calendarDatePicker.isHidden = false
+                cell.calendarDatePicker.date = viewModel.taskDateViewModel.datePicker
+            }
             return cell
         }
     }

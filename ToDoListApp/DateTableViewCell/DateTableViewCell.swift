@@ -33,8 +33,6 @@ class DateTableViewCell: UITableViewCell {
     }
     
     @objc func calendarDatePickerValueChanged(_ sender: UIDatePicker) {
-        viewModel?.datePicker = sender.date
-        viewModel?.configureDate()
         delegate?.calendarDateChanged(to: sender.date)
     }
 }

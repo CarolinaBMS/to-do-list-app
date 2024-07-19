@@ -49,6 +49,11 @@ class ViewController: UIViewController {
         if segue.identifier == "addTaskSegue" {
             let destinationVC = segue.destination as! AddTaskViewController
             destinationVC.delegate = self
+            
+            if let taskToEdit = sender as? (Task, Int) {
+                destinationVC.taskToEdit = taskToEdit.0
+                destinationVC.taskIndex = taskToEdit.1
+            }
         }
     }
     
@@ -66,6 +71,12 @@ extension ViewController: HomeTableViewHeaderDelegate {
 extension ViewController: AddTaskViewControllerDelegate {
     func didSaveTask(_ task: Task) {
         tasks.append(task)
+        saveTasksData(tasks: tasks)
+        ToDoListTableView.reloadData()
+    }
+    
+    func didUpdateTask(_ task: Task, at index: Int) {
+        tasks[index] = task
         saveTasksData(tasks: tasks)
         ToDoListTableView.reloadData()
     }
@@ -94,7 +105,10 @@ extension ViewController: UITableViewDataSource {
         let task = tasks[indexPath.row]
         
         taskCell.taskListTitleLabel.text = task.name
-        taskCell.taskCategoryLabel.text = task.category
+        taskCell.taskCategoryLabel.text = "#\(task.category)"
+        if task.category.isEmpty {
+            taskCell.taskCategoryLabel.text = ""
+        }
         taskCell.taskTimeLabel.text = task.dueDate
         
         let buttonImageName = task.isCompleted ? "checkmark.circle.fill" : "circle"
@@ -118,6 +132,11 @@ extension ViewController: UITableViewDelegate {
         headerView?.delegate = self
         
         return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedTask = tasks[indexPath.row]
+        performSegue(withIdentifier: "addTaskSegue", sender: (selectedTask, indexPath.row))
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
