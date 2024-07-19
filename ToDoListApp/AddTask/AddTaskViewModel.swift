@@ -20,11 +20,7 @@ class AddTaskViewModel {
         
         if taskDateViewModel.stringDate.isEmpty {
             taskDateViewModel.datePicker = .now
-            taskDateViewModel.configureDate()
-        }
-        
-        if !taskCategoryViewModel.text.isEmpty {
-            taskCategoryViewModel.text = "#\(taskCategoryViewModel.text)"
+            taskDateViewModel.configureDateAsString()
         }
         
         task = Task(name: taskNameViewModel.text, category: taskCategoryViewModel.text, dueDate: taskDateViewModel.stringDate, isCompleted: false)
