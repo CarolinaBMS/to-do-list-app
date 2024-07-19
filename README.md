@@ -6,6 +6,7 @@ The to-do list app, named FocusFlow, is a simple and minimalist iOS application 
 
 - Add new tasks easily with a task name, category, and date.
 - View all your tasks in a list.
+- Edit a task.
 - Delete tasks.
 - Mark a task as completed.</p>
 
