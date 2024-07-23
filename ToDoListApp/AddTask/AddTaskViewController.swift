@@ -98,6 +98,9 @@ extension AddTaskViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell", for: indexPath) as! TextFieldTableViewCell
             let cellViewModel = indexPath.row == 0 ? viewModel.taskNameViewModel : viewModel.taskCategoryViewModel
             cell.configure(with: cellViewModel)
+            cell.taskTextField.delegate = self
+            cell.taskTextField.tag = indexPath.row
+            cell.taskTextField.returnKeyType = indexPath.row == 0 ? .next : .done
             return cell
         case .date:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DateTableViewCell", for: indexPath) as! DateTableViewCell
@@ -128,5 +131,18 @@ extension AddTaskViewController: UITableViewDelegate {
     
 }
 
+
+extension AddTaskViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let nextTag = textField.tag + 1
+        if let nextCell = addNewTaskTableView.cellForRow(at: IndexPath(row: nextTag, section: 0)) as? TextFieldTableViewCell,
+            let nextResponder = nextCell.taskTextField {
+            nextResponder.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+}
 
 

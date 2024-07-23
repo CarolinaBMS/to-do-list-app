@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
+class TextFieldTableViewCell: UITableViewCell {
    
     var viewModel: TextFieldViewModel?
     
@@ -27,8 +27,8 @@ class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
         viewModel?.text = taskTextField.text ?? ""
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        taskTextField.resignFirstResponder()
-        return true
-    }
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        taskTextField.resignFirstResponder()
+//        return true
+//    }
 }
