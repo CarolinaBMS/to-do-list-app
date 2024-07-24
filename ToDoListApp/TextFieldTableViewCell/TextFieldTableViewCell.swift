@@ -27,8 +27,4 @@ class TextFieldTableViewCell: UITableViewCell {
         viewModel?.text = taskTextField.text ?? ""
     }
     
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        taskTextField.resignFirstResponder()
-//        return true
-//    }
 }

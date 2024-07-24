@@ -18,6 +18,8 @@ class TaskTableViewCell: UITableViewCell {
     
     var indexPath: IndexPath?
     
+    @IBOutlet weak var calendarIconImageView: UIImageView!
+    
     @IBOutlet weak var taskListTitleLabel: UILabel!
     
     @IBOutlet weak var taskTimeLabel: UILabel!

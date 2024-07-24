@@ -62,19 +62,18 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="dSa-BQ-KLA"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EA6-aQ-s33">
-                                <rect key="frame" x="300" y="26" width="63" height="30"/>
+                                <rect key="frame" x="300" y="27" width="63" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="etX-rm-rWO"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Save">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
-                                </buttonConfiguration>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="saveTaskButton:" destination="eEf-7p-5YX" eventType="touchUpInside" id="rZW-VT-13p"/>
                                 </connections>
@@ -91,7 +90,7 @@
                             <constraint firstItem="t7s-OA-RMo" firstAttribute="leading" secondItem="RFR-zT-Z4q" secondAttribute="leading" constant="125" id="7cC-Ja-FDs"/>
                             <constraint firstItem="t7s-OA-RMo" firstAttribute="top" secondItem="RFR-zT-Z4q" secondAttribute="top" constant="26" id="9FL-99-wi9"/>
                             <constraint firstItem="Wtz-bD-7t0" firstAttribute="bottom" secondItem="RFR-zT-Z4q" secondAttribute="bottom" id="BhY-9U-Z21"/>
-                            <constraint firstItem="EA6-aQ-s33" firstAttribute="top" secondItem="RFR-zT-Z4q" secondAttribute="top" constant="26" id="Tux-pe-XCm"/>
+                            <constraint firstItem="EA6-aQ-s33" firstAttribute="top" secondItem="RFR-zT-Z4q" secondAttribute="top" constant="27" id="Tux-pe-XCm"/>
                             <constraint firstItem="Wtz-bD-7t0" firstAttribute="top" secondItem="t7s-OA-RMo" secondAttribute="bottom" constant="24" id="VeR-to-IR6"/>
                             <constraint firstItem="RFR-zT-Z4q" firstAttribute="trailing" secondItem="t7s-OA-RMo" secondAttribute="trailing" constant="126" id="Wjm-rH-5ma"/>
                             <constraint firstItem="EA6-aQ-s33" firstAttribute="leading" secondItem="t7s-OA-RMo" secondAttribute="trailing" constant="33" id="bcQ-o4-lqF"/>

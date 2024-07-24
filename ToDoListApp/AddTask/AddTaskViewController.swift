@@ -24,40 +24,40 @@ class AddTaskViewController: UIViewController {
     @IBOutlet weak var addNewTaskTableView: UITableView!
     
     @IBAction func saveTaskButton(_ sender: UIButton) {
-        viewModel.saveTask()
-        if taskToEdit != nil, let taskIndex = taskIndex {
-            if let updatedTask = viewModel.getTask() {
-                delegate?.didUpdateTask(updatedTask, at: taskIndex)
-            }
-            taskToEdit = nil
-        } else {
-            if let task = viewModel.getTask() {
-                delegate?.didSaveTask(task)
-            }
-        }
+        saveTask()
         dismiss(animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        addNewTaskTableView.dataSource = self
-        addNewTaskTableView.delegate = self
-        
-        configureAddNewTaskTableView()
-        
-        if let taskToEdit = taskToEdit {
-            viewModel.taskNameViewModel.text = taskToEdit.name
-            viewModel.taskCategoryViewModel.text = taskToEdit.category
-            calendarSwitchIsOn = true
-            viewModel.taskDateViewModel.stringDate = taskToEdit.dueDate
-            viewModel.taskDateViewModel.configureStringDateInCalendarDate()
-        }
+        setupTableView()
+        configureViewForEditing()
     }
 
-    func configureAddNewTaskTableView() {
+    private func setupTableView() {
+        addNewTaskTableView.dataSource = self
+        addNewTaskTableView.delegate = self
         addNewTaskTableView.register(UINib(nibName: "TextFieldTableViewCell", bundle: nil), forCellReuseIdentifier: "TextFieldTableViewCell")
         addNewTaskTableView.register(UINib(nibName: "DateTableViewCell", bundle: nil), forCellReuseIdentifier: "DateTableViewCell")
+    }
+    
+    private func configureViewForEditing() {
+        guard let taskToEdit = taskToEdit else { return }
+        viewModel.taskNameViewModel.text = taskToEdit.name
+        viewModel.taskCategoryViewModel.text = taskToEdit.category
+        calendarSwitchIsOn = true
+        viewModel.taskDateViewModel.stringDate = taskToEdit.dueDate
+        viewModel.taskDateViewModel.configureStringDateInCalendarDate()
+    }
+    
+    private func saveTask() {
+        viewModel.saveTask()
+        if let taskIndex = taskIndex, let updatedTask = viewModel.getTask() {
+            delegate?.didUpdateTask(updatedTask, at: taskIndex)
+        } else if let task = viewModel.getTask() {
+            delegate?.didSaveTask(task)
+        }
+        taskToEdit = nil
     }
 }
 
