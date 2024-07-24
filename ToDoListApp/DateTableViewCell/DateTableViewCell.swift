@@ -23,6 +23,8 @@ class DateTableViewCell: UITableViewCell {
         super.awakeFromNib()
         calendarSwitch.isOn = false
         calendarDatePicker.isHidden = true
+        calendarDatePicker.minimumDate = .now
+        
         calendarSwitch.addTarget(self, action: #selector(calendarSwitchValueChanged(_:)), for: .valueChanged)
         calendarDatePicker.addTarget(self, action: #selector(calendarDatePickerValueChanged(_:)), for: .valueChanged)
     }

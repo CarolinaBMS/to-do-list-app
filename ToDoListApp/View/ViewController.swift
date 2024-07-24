@@ -16,12 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-        ToDoListTableView.dataSource = self
-        ToDoListTableView.delegate = self
         tasks = loadTasksData()
-        ToDoListTableView.sectionHeaderTopPadding = 0
-        ToDoListTableView.rowHeight = UITableView.automaticDimension
-        ToDoListTableView.estimatedRowHeight = 100
     }
     
     func saveTasksData(tasks: [Task]) {
@@ -42,6 +37,11 @@ class ViewController: UIViewController {
     }
     
     func configureTableView() {
+        ToDoListTableView.dataSource = self
+        ToDoListTableView.delegate = self
+        ToDoListTableView.sectionHeaderTopPadding = 0
+        ToDoListTableView.rowHeight = UITableView.automaticDimension
+        ToDoListTableView.estimatedRowHeight = 100
         ToDoListTableView.register(UINib(nibName: "TaskTableViewCell", bundle: nil), forCellReuseIdentifier: "TaskTableViewCell")
     }
     
